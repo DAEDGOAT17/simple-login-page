@@ -7,12 +7,22 @@ const Port = 4000
 require('dotenv').config();
 const { MONGO_URI } = process.env;
 
-await mongoose.connect(process.env.MONGO_URI,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
 
-}).then(()=>console.log("mongoDB connected"))
-    .catch((err)=>console.log("mongo db connetion error",err)); //kindly change the database name a/q to your requirement
+async function connectDB() {
+    try {
+        await mongoose.connect(process.env.MONGO_URI,{
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+
+        }).then(()=>console.log("mongoDB connected"))
+        .catch((err)=>console.log("mongo db connetion error",err)); //kindly change the database name a/q to your requirement
+    }
+    catch (error) {
+        console.log("Error in connecting to DB", error);
+    }
+}
+
+connectDB();
 
 const db = mongoose.connection;
 db.once('open', () => {
