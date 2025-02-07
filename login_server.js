@@ -37,11 +37,11 @@ const loginDB = mongoose.model('logindb', logindbschema);
 
 app.use(express.static(path.join(__dirname,'public'))); 
 
-app.get('/login',(req,res)=>{
+app.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname,'login.html'));
 });
 
-app.post('/login/post',async (req,res)=>{
+app.post('/login',async (req,res)=>{
     const user = new loginDB({
         user_name: req.body.username,
         password: req.body.password
