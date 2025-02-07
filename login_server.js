@@ -2,17 +2,17 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
+const { error } = require("console");
 const Port = 4000
+require('dotenv').config();
+const { MONGO_URI } = process.env;
 
-async function connectDB() {
-    try {
-        await mongoose.connect('mongodb+srv://pankajth2970:mongosh%40pankaj%402970@cluster0.nqduq.mongodb.net/');  //kindly change the database name a/q to your requirement
-    } catch (error) {
-        console.error("DB connection error:", error);
-    }
-}
+await mongoose.connect(process.env.MONGO_URI,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 
-connectDB();
+}).then(()=>console.log("mongoDB connected"))
+    .catch((err)=>console.log("mongo db connetion error",err)); //kindly change the database name a/q to your requirement
 
 const db = mongoose.connection;
 db.once('open', () => {
