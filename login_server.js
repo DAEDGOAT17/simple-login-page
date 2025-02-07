@@ -10,11 +10,8 @@ const { MONGO_URI } = process.env;
 
 async function connectDB() {
     try {
-        await mongoose.connect(process.env.MONGO_URI,{
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-
-        }).then(()=>console.log("mongoDB connected"))
+        await mongoose.connect(process.env.MONGO_URI)
+        .then(()=>console.log("mongoDB connected"))
         .catch((err)=>console.log("mongo db connetion error",err)); //kindly change the database name a/q to your requirement
     }
     catch (error) {
