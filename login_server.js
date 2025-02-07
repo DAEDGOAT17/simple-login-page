@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require('bcryptjs');
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
@@ -20,6 +21,9 @@ async function connectDB() {
 }
 
 connectDB();
+
+var bcrypt = dcodeIO.bcrypt;
+const saltRounds = 10;
 
 
 
