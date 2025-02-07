@@ -6,7 +6,7 @@ const Port = 4000
 
 async function connectDB() {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/logindb');  //kindly change the database name a/q to your requirement
+        await mongoose.connect('mongodb+srv://pankajth2970:mongosh%40pankaj%402970@cluster0.nqduq.mongodb.net/');  //kindly change the database name a/q to your requirement
     } catch (error) {
         console.error("DB connection error:", error);
     }
