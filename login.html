@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>login</title>
+</head>
+<body>
+    <div class="logincard">
+        <h2>log in</h2>
+        <form class="input_form" action="/login/post" method="post">
+            <div class="user-name">
+                <label for="username">USERNAME</label>
+                <input type="text" name="username" id="username" placeholder="enter your username">  
+            </div>
+            <div class="user-pass">
+                <label for="user_pass">PASSWORD</label>
+                <input type="password" name="password" id="userpass" placeholder="enter your password">
+            </div>
+            <button type="submit"> log in</button>
+        </form>
+    </div>
+</body>
+</html>
