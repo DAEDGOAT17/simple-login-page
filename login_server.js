@@ -35,7 +35,7 @@ const logindbschema = new mongoose.Schema({
     password: { type: String, required: true }
 })
 
-app.use(express.urlencoded({ extended: true }));  
+app.use(express.json());  
 
 
 const loginDB = mongoose.model('logindb', logindbschema);
@@ -46,7 +46,7 @@ app.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname,'index.html'));
 });
 
-app.post('/',async (req,res)=>{
+app.post('/login',async (req,res)=>{
     const user = new loginDB({
         user_name: req.body.username,
         password: req.body.password
