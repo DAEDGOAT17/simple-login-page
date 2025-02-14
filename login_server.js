@@ -33,7 +33,7 @@ const logindbschema = new mongoose.Schema({
     password: { type: String, required: true }
 })
 
-app.use(express.urlencoded({ extended: true }));  
+app.use(express.json());  
 
 
 const loginDB = mongoose.model('logindb', logindbschema);
