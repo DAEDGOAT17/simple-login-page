@@ -52,6 +52,8 @@ app.post('/login',async (req,res)=>{
         res.send("Data saved to DB");
 });
 
+app.use("./", router);
+
 app.listen(Port,()=>{
     console.log("server is live");
 });
