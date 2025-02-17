@@ -32,7 +32,9 @@ const logindbschema = new mongoose.Schema({
     password: { type: String, required: true }
 })
 
-app.use(express.json());  
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // Add this to handle form submissions
+
 
 
 const loginDB = mongoose.model('logindb', logindbschema);
