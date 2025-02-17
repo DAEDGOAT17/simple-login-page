@@ -44,15 +44,19 @@ app.get('/',(req,res)=>{
 });
 
 app.post('/login',async (req,res)=>{
-    const user = new loginDB({
-        user_name: req.body.username,
-        password: req.body.password
-    });
+    try {
+        const user = new loginDB({
+            user_name: req.body.username,
+            password: req.body.password
+        });
         await user.save();
-        res.send("Data saved to DB");
+        res.status(201).send("Data saved to DB");  // 201 for successful creation
+    } catch (error) {
+        res.status(500).send("Error saving data to DB");
+        console.error(error);
+    }
 });
 
-app.use("./", router);
 
 app.listen(Port,()=>{
     console.log("server is live");
